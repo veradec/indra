@@ -1,0 +1,185 @@
+[{
+    "height": 40,
+    "spacing": 5, 
+
+    "modules-left": [
+        "group/workspaces",
+        "mpris"
+    ],
+    "modules-right": [
+	"group/disk",
+	"pulseaudio",
+        "group/cpuram",
+        "clock",
+	"tray",
+    ],
+
+
+    "custom/openbracket": {
+        "format": "[",
+        "tooltip": false
+    },
+    "custom/closebracket": {
+        "format": "]",
+        "tooltip": false
+    },    
+    "custom/split": {
+      "format": "|",
+      "tooltip": false
+    },
+
+    "group/workspaces":{
+        "orientation": "horizontal",
+        "modules":[
+            "custom/openbracket",
+            "hyprland/workspaces",
+            "custom/closebracket"
+        ]
+    },
+
+    "disk": {
+	"interval": 30,
+    	"format": "CHONKY - {free} ",
+    	"path": "/mnt/chonky/"
+    },
+
+    "disk#slim": {
+	    "interval": 30,
+	    "format": " SLIM - {free}",
+	    "path": "/mnt/slim"
+    },
+
+"pulseaudio": {
+    "format": "[VOL: {volume}%]",
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"]
+},
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "enable-bar-scroll": true,
+        "disable-scroll-wraparound": true,
+        "active-only": false,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+	    "7": "7",
+	    "8": "8",
+	    "9": "9",
+            "default": "D"
+        }
+    },
+
+    "mpris": {
+        "format": "[ {status_icon}: {title} ]",
+        "interval": 1,
+        "dynamic-len": 40,
+        "status-icons": {
+            "playing": "PLAYING",
+            "paused": "PAUSED",
+            "stopped": "STOPPED"
+        },
+        "dynamic-order": ["artist"]
+    },
+    "group/windows": {
+        "orientation":"horizontal",
+        "modules":[
+            "custom/openbracket",
+            "hyprland/window",
+            "custom/closebracket"
+        ]
+    },
+    "hyprland/window": {
+        "format": "{title}", 
+        "max-length": 20,
+        "min-length": 0,
+        "all-outputs": true
+    },
+
+    "group/disk" : {
+	    "orientation" : "horizontal",
+	    "modules":[
+		    "custom/openbracket",
+		    "disk",
+		    "custom/split",
+		    "disk#slim",
+		    "custom/closebracket"
+	    ]
+
+    }, 
+
+    "group/cpuram": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/openbracket",
+            "cpu",
+            "custom/split",
+            "memory",
+            "custom/closebracket"
+        ]
+    },
+    "cpu": {
+        "format": "CPU:{usage}%",
+        "tooltip": false,
+        "interval": 2,
+        "on-click": "kitty -e btop",
+    },
+    "memory":{
+        "format": "RAM:{}%",
+        "tooltip": false,
+        "interval": 2,
+    },
+
+    "wireplumber": {
+        "scroll-step": 5,
+        "format": "{icon}{volume}%",
+        "format-bluetooth": "{icon}{volume}% ",
+        "format-bluetooth-muted": " {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [" :", " :", " :"]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+
+    "clock": {
+        "format": "[TIME: {:%H:%M | DATE: %d %b %y (%a)}] ",
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "custom/swaync": {
+      "format": "",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client --toggle-panel",
+      "interval": 0
+    },
+
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
+    },
+    "custom/notifications": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/notification_center.sh"
+    }
+}]
+

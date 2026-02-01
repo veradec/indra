@@ -1,0 +1,112 @@
+@import url('file:///home/san/.cache/wal/colors-waybar.css');
+
+* {
+  min-height: 0;
+  min-width: 0;
+  font-family: Lexend, "JetBrainsMono NFP";
+  font-size: 12px;
+  font-weight: 600;
+}
+
+window#waybar {
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  background-color: transparent; 
+}
+
+#workspaces button {
+  padding: 0.3rem 0.6rem;
+  margin: 0.4rem 0.25rem;
+  border-radius: 6px;
+  background-color: @color0;
+  color: @color7;
+}
+
+#workspaces button:hover {
+  color: @color2;
+  background-color: @color7;
+}
+
+#workspaces button.active {
+  background-color: shade(@color1, 0.5);
+  color: @color1;
+}
+
+#workspaces button.urgent {
+  background-color: @color1;
+  color: @color9;
+}
+
+/* Add rounded backgrounds for other elements */
+#clock,
+#pulseaudio,
+#custom-logo,
+#custom-power,
+#custom-spotify,
+#custom-notification,
+#cpu,
+#tray,
+#memory,
+#window,
+#custom-disk,
+#custom-sep {
+  padding: 0.3rem 0.6rem;
+  margin: 0.4rem 0.25rem;
+  border-radius: 6px;
+  background-color: @color0; /* Use the base background */
+  color: @color8; /* Default muted color for text */
+}
+
+#cpu {
+  color: @color2;
+  background-color: @color0;
+}
+
+#memory {
+  color: @color5;
+  background-color: @color0;
+}
+
+#clock {
+  color: @color4;
+  background-color: @color0;
+}
+
+#clock.simpleclock {
+  color: @color6;
+  background-color: @color0;
+}
+
+#window {
+  color: @color7;
+  background-color: @color0;
+}
+
+#pulseaudio {
+  color: @color9;
+  background-color: @color0;
+}
+
+#pulseaudio.muted {
+  color: @color8;
+  background-color: @color0;
+}
+
+#custom-logo {
+  color: @color6;
+  background-color: @color0;
+}
+
+#custom-power {
+  color: @color1;
+  background-color: @color0;
+}
+
+tooltip {
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  background-color: @color0;
+  border: 2px solid @color4;
+  color: @foreground;
+}
+
