@@ -8,7 +8,6 @@ cat > /usr/lib/os-release << 'EOL'
 NAME="Indra Linux"
 PRETTY_NAME="Indra Linux"
 ID=indralinux
-ID_LIKE=arch
 BUILD_ID=rolling
 ANSI_COLOR="38;2;23;147;209"
 HOME_URL="https://indralinux.org/"
@@ -24,4 +23,11 @@ cp /usr/lib/os-release /etc/os-release
 # Create a test file to verify hook ran
 echo "Customization completed at $(date)" > /root/customization-complete.txt
 
+cat > /etc/lsb-release << 'EOL'
+DISTRIB_ID="Indra"
+DISTRIB_RELEASE="rolling"
+DISTRIB_DESCRIPTION="Indira Linux"
+EOL
 echo "=== Customization complete ==="
+
+
